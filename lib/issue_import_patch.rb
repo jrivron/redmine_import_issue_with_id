@@ -16,12 +16,13 @@ module IssueImportWithIdPatch
        issue.id = issue_id
        # to avoid exception in case of duplicate id force error  by removing traker_id
        # to do manage right message
-       if Issue.find_by_id(issue_id) : nil
+       if Issue.find_by_id(issue_id)
           issue.tracker_id = nil
        end
     end
     issue 
   end 
+  end
 end
 IssueImport.send(:include, IssueImportWithIdPatch)
 
